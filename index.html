@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risky @ Daemon Lab</title>
+    <style>
+        /* CSS: Styling untuk Tampilan Hacker/Terminal */
+        :root {
+            --bg-color: #0d1117; /* GitHub Dark Mode Background */
+            --term-bg: #161b22;
+            --text-color: #c9d1d9;
+            --accent-color: #00ff41; /* Hijau Terminal */
+            --secondary-color: #58a6ff; /* Biru Link */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace; /* Font Coding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Kotak Terminal Utama */
+        .terminal-window {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--term-bg);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        /* Bagian Atas Terminal (Tombol Merah Kuning Hijau) */
+        .terminal-header {
+            background-color: #010409;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .red { background-color: #ff5f56; }
+        .yellow { background-color: #ffbd2e; }
+        .green { background-color: #27c93f; }
+        .title-bar { margin-left: 15px; font-size: 0.9em; color: #8b949e; }
+
+        /* Isi Konten */
+        .terminal-body {
+            padding: 25px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .prompt {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .command {
+            color: #fff;
+        }
+
+        .output {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            margin-left: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-left: 20px;
+        }
+
+        li::before {
+            content: "> ";
+            color: var(--secondary-color);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--secondary-color);
+        }
+
+        a:hover {
+            background-color: rgba(88, 166, 255, 0.1);
+        }
+
+        /* Animasi Kursor Kedip */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            background-color: var(--accent-color);
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.2rem; }
+            .terminal-body { padding: 15px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+            <span class="title-bar">root@daemon-lab:~</span>
+        </div>
+
+        <div class="terminal-body">
+            
+            <div>
+                <span class="prompt">root@daemon:~#</span>
+                <span class="command"> ./whoami.sh</span>
+            </div>
+            <div class="output">
+                <h1>Halo, Saya Risky.</h1>
+                <p>Siswa MAN | Pure Math Enthusiast | Home Lab Builder</p>
+                <p>Selamat datang di <strong>daemon.my.id</strong>, pusat eksperimen digital saya.</p>
+            </div>
+
+            <div>
+                <span class="prompt">root@daemon:~#</span>
+                <span class="command"> cat current_projects.txt</span>
+            </div>
+            <div class="output">
+                <ul>
+                    <li><strong>[ON PROGRESS]</strong> PUSTA (Publication Archive)</li>
+                    <li><strong>[MAINTENANCE]</strong> Home Server AI (Ubuntu 24.04 on Proxmox)</li>
+                    <li><strong>[PLANNED]</strong> Qwen 7B Local LLM Integration</li>
+                    <li><strong>[PLANNED]</strong> IoT Power Monitor (ESP32)</li>
+                </ul>
+            </div>
+
+            <div>
+                <span class="prompt">root@daemon:~#</span>
+                <span class="command"> connect --method social</span>
+            </div>
+            <div class="output">
+                <p>Tertarik kolaborasi atau diskusi matematika?</p>
+                <p>
+                    [ <a href="#">GitHub</a> ] 
+                    [ <a href="#">Email</a> ] 
+                    [ <a href="#">LinkedIn</a> ]
+                </p>
+            </div>
+
+            <div>
+                <span class="prompt">root@daemon:~#</span>
+                <span class="command"> <span class="cursor"></span></span>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
