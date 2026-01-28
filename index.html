@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
         :root {
             --bg-color: #050505;
             --card-bg: #121212;
-            --primary: #ff3e3e; /* Merah Menyala seperti di video */
+            --primary: #ff3e3e;
             --text: #ffffff;
             --text-muted: #a0a0a0;
             --gradient: linear-gradient(45deg, #ff3e3e, #800000);
@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* Navbar */
+        /* --- NAVBAR RESPONSIVE --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -39,10 +39,11 @@
             padding: 20px 5%;
             position: fixed;
             width: 100%;
-            background: rgba(5, 5, 5, 0.9);
+            background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(10px);
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 1px solid #222;
+            transition: 0.3s;
         }
 
         .logo {
@@ -53,30 +54,37 @@
             letter-spacing: 2px;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
         .nav-links a {
             color: var(--text);
             text-decoration: none;
-            margin-left: 30px;
             font-size: 0.9rem;
             transition: 0.3s;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: var(--primary);
         }
 
-        /* Hero Section (Bagian Atas) */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh; /* Pakai min-height biar gak kepotong di HP */
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 10%;
+            padding: 120px 10% 50px 10%; /* Tambah padding atas buat Nav */
             background: radial-gradient(circle at 80% 50%, rgba(255, 62, 62, 0.1) 0%, transparent 50%);
+            gap: 50px;
         }
 
         .hero-content {
             max-width: 600px;
+            z-index: 2;
         }
 
         .status-badge {
@@ -120,6 +128,12 @@
             line-height: 1.6;
         }
 
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 30px;
@@ -130,6 +144,7 @@
             font-weight: 500;
             transition: 0.3s;
             border: 1px solid var(--primary);
+            white-space: nowrap;
         }
 
         .btn:hover {
@@ -138,33 +153,38 @@
             box-shadow: 0 0 20px rgba(255, 62, 62, 0.4);
         }
 
-        .hero-image {
-            position: relative;
-        }
-
-        /* Grid Kotak-Kotak Ala Dashboard */
+        /* --- DASHBOARD GRID (STATISTIK) --- */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            width: 400px;
+            width: 100%;
+            max-width: 450px; /* Batasi lebar di Desktop */
         }
 
         .tech-card {
             background: var(--card-bg);
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             border: 1px solid #222;
+            text-align: center;
+            transition: 0.3s;
+        }
+        
+        .tech-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
         }
 
         .tech-card h3 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary);
+            margin: 10px 0;
         }
 
-        /* Portfolio Section */
+        /* --- PROJECTS SECTION --- */
         .section {
-            padding: 100px 10%;
+            padding: 80px 10%;
         }
 
         .section-title {
@@ -179,7 +199,7 @@
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto Responsive */
             gap: 30px;
         }
 
@@ -189,6 +209,8 @@
             overflow: hidden;
             border: 1px solid #222;
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -199,45 +221,44 @@
         .project-img {
             width: 100%;
             height: 200px;
-            background-color: #222;
+            background-color: #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #444;
             font-size: 3rem;
+            border-bottom: 1px solid #222;
         }
 
         .project-info {
-            padding: 20px;
-        }
-
-        .project-info h3 {
-            margin-bottom: 10px;
+            padding: 25px;
+            flex-grow: 1;
         }
 
         .tech-stack {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .tag {
-            background: #1a1a1a;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
+            background: #000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
             color: var(--text-muted);
             border: 1px solid #333;
         }
 
-        /* Contact Section */
+        /* --- CONTACT --- */
         .contact-box {
             background: var(--card-bg);
-            padding: 50px;
+            padding: 40px;
             border-radius: 20px;
             text-align: center;
             border: 1px solid #222;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
@@ -248,7 +269,8 @@
             background: #0a0a0a;
             border: 1px solid #333;
             color: white;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 1rem;
         }
         
         input:focus, textarea:focus {
@@ -262,12 +284,66 @@
             100% { opacity: 1; }
         }
 
-        /* Responsif HP */
+        /* --- MEDIA QUERIES (Jantungnya Responsif) --- */
+        
+        /* 1. Tablet & Laptop Kecil (Max 1024px) */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column; /* Susun ke bawah */
+                text-align: center;
+                justify-content: center;
+                padding-top: 140px; /* Kasih ruang buat Nav */
+            }
+
+            .hero-content {
+                margin-bottom: 50px;
+                max-width: 100%;
+            }
+
+            .btn-group {
+                justify-content: center; /* Tombol di tengah */
+            }
+
+            .grid-container {
+                max-width: 600px; /* Statistik melebar sedikit */
+            }
+        }
+
+        /* 2. HP / Mobile (Max 768px) */
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 100px; height: auto; }
-            .grid-container { display: none; } /* Sembunyikan grid di HP biar rapi */
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
+            nav {
+                flex-direction: column; /* Logo atas, Menu bawah */
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2.5rem; /* Font Judul mengecil */
+            }
+
+            .hero {
+                padding-top: 160px; /* Turun lagi karena Nav menebal */
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr; /* Statistik jadi 1 kolom ke bawah */
+                max-width: 100%;
+            }
+            
+            /* Kartu "Current Focus" di statistik jadi normal */
+            .tech-card[style*="grid-column: span 2"] {
+                grid-column: span 1 !important;
+            }
+
+            .section {
+                padding: 60px 5%; /* Padding pinggir diperkecil */
+            }
         }
     </style>
 </head>
@@ -292,7 +368,7 @@
                 12th Grade Student & Lab Partner.<br>
                 Building Home Servers, Local AI, and Math Solutions.
             </p>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div class="btn-group">
                 <a href="#portfolio" class="btn">Lihat Project</a>
                 <a href="https://github.com/ardian-netizen" class="btn" style="background:transparent; border-color: #333;">GitHub</a>
             </div>
@@ -300,18 +376,18 @@
 
         <div class="grid-container">
             <div class="tech-card">
-                <i class="fas fa-code" style="color: #ff3e3e; margin-bottom: 10px;"></i>
+                <i class="fas fa-code" style="color: #ff3e3e; margin-bottom: 10px; font-size: 1.5rem;"></i>
                 <h3>3+</h3>
-                <p style="color: #888">Total Projects</p>
+                <p style="color: #888; font-size: 0.9rem;">Total Projects</p>
             </div>
             <div class="tech-card">
-                <i class="fas fa-server" style="color: #ff3e3e; margin-bottom: 10px;"></i>
+                <i class="fas fa-server" style="color: #ff3e3e; margin-bottom: 10px; font-size: 1.5rem;"></i>
                 <h3>3</h3>
-                <p style="color: #888">Server Nodes</p>
+                <p style="color: #888; font-size: 0.9rem;">Server Nodes</p>
             </div>
             <div class="tech-card" style="grid-column: span 2; background: #1a0505; border-color: #ff3e3e;">
-                <h4 style="margin-bottom: 10px;">Current Focus</h4>
-                <p>Developing <strong>CBT System</strong> with Gemini AI Integration.</p>
+                <h4 style="margin-bottom: 10px; color:white;">Current Focus</h4>
+                <p style="color: #ccc; font-size: 0.9rem;">Developing <strong>CBT System</strong> with Gemini AI Integration.</p>
             </div>
         </div>
     </section>
@@ -395,121 +471,4 @@
     </footer>
 
 </body>
-</html>            margin-bottom: 20px;
-        }
-
-        .prompt {
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .command {
-            color: #fff;
-        }
-
-        .output {
-            color: var(--text-color);
-            margin-bottom: 20px;
-            margin-left: 0;
-        }
-
-        ul {
-            list-style-type: none;
-            margin-left: 20px;
-        }
-
-        li::before {
-            content: "> ";
-            color: var(--secondary-color);
-        }
-
-        a {
-            color: var(--secondary-color);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--secondary-color);
-        }
-
-        a:hover {
-            background-color: rgba(88, 166, 255, 0.1);
-        }
-
-        /* Animasi Kursor Kedip */
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            height: 18px;
-            background-color: var(--accent-color);
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Responsif untuk HP */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.2rem; }
-            .terminal-body { padding: 15px; font-size: 0.9rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="terminal-window">
-        <div class="terminal-header">
-            <div class="dot red"></div>
-            <div class="dot yellow"></div>
-            <div class="dot green"></div>
-            <span class="title-bar">root@daemon-lab:~</span>
-        </div>
-
-        <div class="terminal-body">
-            
-            <div>
-                <span class="prompt">root@daemon:~#</span>
-                <span class="command"> ./whoami.sh</span>
-            </div>
-            <div class="output">
-                <h1>Halo, Saya Risky Ardiansyah.</h1>
-                <p>Siswa MAN 2 Lamongan | Pure Math Enthusiast | Home Lab Builder</p>
-                <p>Selamat datang di <strong>daemon.my.id</strong>, pusat eksperimen digital saya.</p>
-            </div>
-
-            <div>
-                <span class="prompt">root@daemon:~#</span>
-                <span class="command"> cat current_projects.txt</span>
-            </div>
-            <div class="output">
-                <ul>
-                    <li><strong>[COMPLETED]</strong> Cognix (AI-Powered CBT System)</li>
-                    <li><strong>[ON PROGRESS]</strong> PUSTA (Publication Archive)</li>
-                    <li><strong>[MAINTENANCE]</strong> Home Server AI (Ubuntu 24.04 on Proxmox)</li>
-                    <li><strong>[PLANNED]</strong> Qwen 7B General & Math Local LLM Integration</li>
-                    <li><strong>[PLANNED]</strong> IoT Power Monitor (ESP32)</li>
-                </ul>
-            </div>
-
-            <div>
-                <span class="prompt">root@daemon:~#</span>
-                <span class="command"> connect --method social</span>
-            </div>
-            <div class="output">
-                <p>Tertarik kolaborasi atau diskusi matematika?</p>
-                <p>
-                    [ <a href="https://www.instagram.com/ardian_.risky?igsh=bmd5djBwbnBvb2hq">Instagram</a> ]
-                    [ <a href="mailto:riskyardiansyah1808@gmail.com">Email</a> ]
-                </p>
-            </div>
-
-            <div>
-                <span class="prompt">root@daemon:~#</span>
-                <span class="command"> <span class="cursor"></span></span>
-            </div>
-
-        </div>
-    </div>
-
-</body>
-</html>
+                </html>
